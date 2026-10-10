@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alanur & Burak - Sinema Gecesi</title>
+    <script src="https://tailwindcss.com"></script>
+    <link href="https://googleapis.com" rel="stylesheet">
+    <style>
+        body { font-family: 'Poppins', sans-serif; background: radial-gradient(circle at center, #1e1b4b 0%, #0f172a 100%); }
+        .glass { background: rgba(255, 255, 255, 0.03); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.08); }
+        .ticket-glow { box-shadow: 0 0 40px rgba(234, 179, 8, 0.15); }
+    </style>
+</head>
+<body class="min-h-screen text-slate-100 flex flex-col items-center justify-center p-4">
+
+    <div class="w-full max-w-4xl glass rounded-3xl p-6 md:p-10 shadow-2xl ticket-glow border-yellow-500/20">
+        <h1 class="text-3xl md:text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 via-amber-200 to-yellow-500 mb-2">
+            Alanur İçin Özel Rezervasyon Paneli
+        </h1>
+        <p class="text-slate-400 text-center mb-8 text-sm md:text-base">Tercihlerini yap, biletini anında oluştur ve Burak'a fırlat! ✨</p>
+
+        <!-- Your exact Formspree link is integrated here -->
+        <form action="https://formspree.io/f/mqpebdrb" method="POST" class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <div class="space-y-6">
+                <!-- Date Choice -->
+                <div>
+                    <label class="block text-sm font-semibold text-yellow-400/90 mb-2">📅 Tarih Seçimi (Ekim 2026)</label>
+                    <select name="Tarih" required class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-yellow-500 transition">
+                        <option value="13 Ekim Salı">13 Ekim Salı</option>
+                        <option value="14 Ekim Çarşamba">14 Ekim Çarşamba</option>
+                        <option value="15 Ekim Perşembe">15 Ekim Perşembe</option>
+                        <option value="16 Ekim Cuma">16 Ekim Cuma</option>
+                        <option value="17 Ekim Cumartesi">17 Ekim Cumartesi</option>
+                    </select>
+                </div>
+
+                <!-- Hour Choice -->
+                <div>
+                    <label class="block text-sm font-semibold text-yellow-400/90 mb-2">⏰ Saat Tercihi</label>
+                    <input type="time" name="Saat" required value="20:00" class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-yellow-500 transition">
+                </div>
+
+                <!-- Location Choice -->
+                <div>
+                    <label class="block text-sm font-semibold text-yellow-400/90 mb-2">📍 Yakası</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="Yaka" value="İstanbul Avrupa Yakası" checked class="sr-only peer">
+                            <div class="p-3 text-center rounded-xl bg-slate-900/50 border border-slate-700 peer-checked:border-yellow-500 peer-checked:bg-yellow-500/10 text-slate-400 peer-checked:text-yellow-400 transition">Avrupa Yakası</div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="Yaka" value="İstanbul Anadolu Yakası" class="sr-only peer">
+                            <div class="p-3 text-center rounded-xl bg-slate-900/50 border border-slate-700 peer-checked:border-yellow-500 peer-checked:bg-yellow-500/10 text-slate-400 peer-checked:text-yellow-400 transition">Anadolu Yakası</div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Concept Choice -->
+                <div>
+                    <label class="block text-sm font-semibold text-yellow-400/90 mb-2">🍿 Sinema Konsepti</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="cursor-pointer">
+                            <input type="radio" name="Konsept" value="Açık Hava Sineması" checked class="sr-only peer">
+                            <div class="p-3 text-center rounded-xl bg-slate-900/50 border border-slate-700 peer-checked:border-yellow-500 peer-checked:bg-yellow-500/10 text-slate-400 peer-checked:text-yellow-400 transition">Açık Hava (Open Air)</div>
+                        </label>
+                        <label class="cursor-pointer">
+                            <input type="radio" name="Konsept" value="Kapalı Salon Sineması" class="sr-only peer">
+                            <div class="p-3 text-center rounded-xl bg-slate-900/50 border border-slate-700 peer-checked:border-yellow-500 peer-checked:bg-yellow-500/10 text-slate-400 peer-checked:text-yellow-400 transition">Kapalı Salon</div>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Genre Choice -->
+                <div>
+                    <label class="block text-sm font-semibold text-yellow-400/90 mb-2">🎬 Film Kategorisi</label>
+                    <select name="Film_Kategorisi" class="w-full bg-slate-900/80 border border-slate-700 rounded-xl px-4 py-3 text-slate-200 focus:outline-none focus:border-yellow-500 transition">
+                        <option value="Romantik Komedi">Romantik Komedi</option>
+                        <option value="Bilim Kurgu / Macera">Bilim Kurgu / Macera</option>
+                        <option value="Gerilim / Gizem">Gerilim / Gizem</option>
+                        <option value="Animasyon / Eğlenceli">Animasyon / Eğlenceli</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Right Side Preview -->
+            <div class="flex flex-col justify-between items-center bg-gradient-to-br from-yellow-600/10 to-amber-900/20 rounded-2xl p-6 border border-yellow-500/20 relative overflow-hidden">
+                <div class="absolute -left-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-slate-950 rounded-full"></div>
+                <div class="absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-8 bg-slate-950 rounded-full"></div>
+                
+                <div class="w-full text-center pb-4 border-b border-dashed border-yellow-500/30">
+                    <span class="text-xs tracking-widest text-yellow-500 font-bold uppercase">SİNEMA GİRİŞ BİLETİ</span>
+                    <h2 class="text-2xl font-bold text-white mt-1">ALANUR & BURAK</h2>
+                </div>
+
+                <div class="w-full py-6 space-y-4 text-center md:text-left md:px-6">
+                    <p class="text-sm text-slate-400">Bu bilet, seçtiğin kriterlere göre Burak tarafından tamamen senin için rezerve edilecektir.</p>
+                    <div class="grid grid-cols-2 gap-4 text-xs font-mono text-amber-200/80">
+                        <div>[ ETKİNLİK DÖNEMİ ]<br><span class="text-white font-sans text-sm font-semibold">13-17 Ekim 2026</span></div>
+                        <div>[ LOKASYON ]<br><span class="text-white font-sans text-sm font-semibold">İstanbul</span></div>
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full bg-gradient-to-r from-yellow-500 to-amber-500 hover:from-yellow-400 hover:to-amber-400 text-slate-950 font-bold py-4 px-6 rounded-xl shadow-xl transition transform hover:-translate-y-0.5 active:translate-y-0 text-center">
+                    Daveti Onayla ve Burak'a Bildir 🚀
+                </button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
